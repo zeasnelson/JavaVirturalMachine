@@ -64,37 +64,37 @@ A lexical analyzer for this language's tokens has been implemented in Project 1.
 Since the syntax is so simple, your "top-down parser" will be just a while-loop whose body parses and stores instructions. Represent the instructions by class objects. Build your instruction class hierarchy in such a way that additional instructions can be incorporated smoothly. More specifically, create an abstract class named Instruction at the root of the hierarchy and use the leaf classes to represent the actual instructions. Store the operands of instructions in appropriate class fields. Implement the signed/unsigned integers by 32-bit int type, floating-point numbers by double-precision 64-bit double type.
 
 The following is the operational semantics of the instructions. They will be implemented in Project 3. In this project the semantics should help arrangement of the class hierarchy and choice of suitable field names of instruction classes.
-push value onto operand stack
-iconst k : push integer constant k onto stack
-iload k : push integer at address k in variable area onto stack
-fconst x : push floating-point constant x onto stack
-fload k : push floating-point value at address k in variable area onto stack
-pop top of operand stack and store
-istore k : pop top of stack, which is assumed to be an integer, and store it in address k in variable area
-fstore k : pop top of stack, which is assumed to be a floating-point number, and store it in address k in variable area
-arithmetic
-iadd, isub, imul, idiv : pop top two integer values from stack, apply operator to stack[top-1] and stack[top], push result onto stack
-fadd, fsub, fmul, fdiv : pop top two floating-point values from stack, apply operator to stack[top-1] and stack[top], push result onto stack
-type conversion
-intToFloat : convert integer at top of stack to floating-point number
-comparison-jump
-icmpeq k :   pop top two integer values from stack; if stack[top−1] = stack[top] then go to instruction at address k
-icmpne k :   pop top two integer values from stack; if stack[top−1] ≠ stack[top] then go to instruction at address k
-icmplt k :   pop top two integer values from stack; if stack[top−1] < stack[top] then go to instruction at address k
-icmple k :   pop top two integer values from stack; if stack[top−1] ≤ stack[top] then go to instruction at address k
-icmpgt k :   pop top two integer values from stack; if stack[top−1] > stack[top] then go to instruction at address k
-icmpge k :   pop top two integer values from stack; if stack[top−1] ≥ stack[top] then go to instruction at address k
-Likewise for fcmpeq, fcmpne, fcmplt, fcmple, fcmpgt, fcmpge
-unconditional jump
-goto k : go to instruction at address k
-function invocation
-invoke k1, k2, k3 : invoke function code starting at label k1, k2 = the # of parameters, k3 = the # of local variables
-function return
-return : return from void-type function
-ireturn : return from function whose return type is integer
-freturn : return from function whose return type is floating-point
-print
-print k : print value at address k in variable area on the screen
+    push value onto operand stack
+    iconst k : push integer constant k onto stack
+    iload k : push integer at address k in variable area onto stack
+    fconst x : push floating-point constant x onto stack
+    fload k : push floating-point value at address k in variable area onto stack
+    pop top of operand stack and store
+    istore k : pop top of stack, which is assumed to be an integer, and store it in address k in variable area
+    fstore k : pop top of stack, which is assumed to be a floating-point number, and store it in address k in variable area
+    arithmetic
+    iadd, isub, imul, idiv : pop top two integer values from stack, apply operator to stack[top-1] and stack[top], push result onto stack
+    fadd, fsub, fmul, fdiv : pop top two floating-point values from stack, apply operator to stack[top-1] and stack[top], push result onto stack
+    type conversion
+    intToFloat : convert integer at top of stack to floating-point number
+    comparison-jump
+    icmpeq k :   pop top two integer values from stack; if stack[top−1] = stack[top] then go to instruction at address k
+    icmpne k :   pop top two integer values from stack; if stack[top−1] ≠ stack[top] then go to instruction at address k
+    icmplt k :   pop top two integer values from stack; if stack[top−1] < stack[top] then go to instruction at address k
+    icmple k :   pop top two integer values from stack; if stack[top−1] ≤ stack[top] then go to instruction at address k
+    icmpgt k :   pop top two integer values from stack; if stack[top−1] > stack[top] then go to instruction at address k
+    icmpge k :   pop top two integer values from stack; if stack[top−1] ≥ stack[top] then go to instruction at address k
+    Likewise for fcmpeq, fcmpne, fcmplt, fcmple, fcmpgt, fcmpge
+    unconditional jump
+    goto k : go to instruction at address k
+    function invocation
+    invoke k1, k2, k3 : invoke function code starting at label k1, k2 = the # of parameters, k3 = the # of local variables
+    function return
+    return : return from void-type function
+    ireturn : return from function whose return type is integer
+    freturn : return from function whose return type is floating-point
+    print
+    print k : print value at address k in variable area on the screen
 Implement the instruction store by a 1-dimensional array of objects of Instruction class type. The array indexes will serve as instruction addresses. The array size of 1000 should be sufficient for our projects. In the following description, instStore is the name of the array.
 
 The labels used in the instruction list, including the target labels in comparison-jump, goto, and invoke instructions, must be mapped to the corresponding indexes of the instruction array. This can be achieved as follows. As the parser extracts an instruction preceded by a label L and to be stored in instStore[i], record the pair (L, i) in a suitable table/map. After the instructions have been parsed and stored, scan the array instStore and replace the label L used in each comparison-jump, goto, and invoke instruction by the corresponding array index i by looking it up in the table/map. (I've used java.util.HashMap for this purpose.)
