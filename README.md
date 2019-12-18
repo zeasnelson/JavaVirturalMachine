@@ -1,7 +1,5 @@
 # JavaVirturalMachine
 PROJECT 1: Lexical Analyzer
-Due: 10/04/19, Friday, 11 PM
-Late projects will not be accepted.
 
 In this semester you will implement a stack-based virtual machine. It is patterned after the Java Virtual Machine, but the instruction set is considerably downsized to make it suitable for student projects. The objective of Project 1 is to implement a lexical analyzer for our VM language, which has 7 token categories ⟨unsigned int⟩ through ⟨comma⟩ defined by the following EBNF:
 
@@ -36,7 +34,6 @@ The implementation should be based on the above DFA. Your lexical analyzer progr
 
 
 PROJECT 2: Parser, Instruction Store
-Late projects will not be accepted.
 
 This project is a continuation of Project 1. Looking ahead to Project 3 and 4, you are to implement the virtual machine in object-oriented manner, taking advantage of inheritance, with a view to smooth addition of more data types and instructions. In trade-off, the runtime efficiency of the virtual machine is sacrificed somewhat as compared with implementations in purely procedural style.
 
@@ -212,7 +209,3 @@ Presume that the instruction list is always type correct, namely that each typed
 
 Your program is to read any text file containing (what is intended to be) an instruction list, parse and store the instructions in instStore array, and display the stored instructions along with their sequential indexes in an output file. It will then interpret the instruction list. The values to be printed by print instructions, the runtime error messages, and the peak sizes of the operand/runtime stacks are to be displayed on the screen.
 
-To make grading efficient and uniform, observe the following:
-The program must read the input/output file names as external arguments to the main function. How to set external arguments to Java main function in Eclipse.
-The main function to be invoked to run the program must be included in VM.java class.
-If your Project 3 program isn't functioning, you may use this sample program.
