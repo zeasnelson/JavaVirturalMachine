@@ -1,8 +1,9 @@
 # JavaVirturalMachine
-PROJECT 1: Lexical Analyzer
+# PROJECT 1: Lexical Analyzer
 
 In this semester you will implement a stack-based virtual machine. It is patterned after the Java Virtual Machine, but the instruction set is considerably downsized to make it suitable for student projects. The objective of Project 1 is to implement a lexical analyzer for our VM language, which has 7 token categories ⟨unsigned int⟩ through ⟨comma⟩ defined by the following EBNF:
 
+```
 ⟨digit⟩ → 0 | 1 | ... | 9
 ⟨unsigned int⟩ → {⟨digit⟩}+
 ⟨signed int⟩ → (+|−) {⟨digit⟩}+
@@ -16,7 +17,7 @@ In this semester you will implement a stack-based virtual machine. It is pattern
                                     "goto" | "invoke" | "return" | "ireturn" | "freturn" | "print"
 ⟨colon⟩ → ":"
 ⟨comma⟩ → ","
-
+```
 According to the above definitions, the integers and floating-point numbers may be signed with "+" or "−". Moreover, the integer or fractional part, but not both, of a string in ⟨float⟩ may be empty. The instruction names are case-sensitive.
 
 The following is a DFA to accept the token categories, except for ⟨instruction name⟩.
