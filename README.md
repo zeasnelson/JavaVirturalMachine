@@ -1,4 +1,4 @@
-# JavaVirturalMachine
+# Java Virtural Machine
 ## PROJECT 1: Lexical Analyzer
 
 In this semester you will implement a stack-based virtual machine. It is patterned after the Java Virtual Machine, but the instruction set is considerably downsized to make it suitable for student projects. The objective of Project 1 is to implement a lexical analyzer for our VM language, which has 7 token categories ⟨unsigned int⟩ through ⟨comma⟩ defined by the following EBNF:
