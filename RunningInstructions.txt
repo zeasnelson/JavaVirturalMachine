@@ -1,0 +1,23 @@
+
+
+
+Two ways to run this program:
+
+* The clean way:
+    - cd to source folder
+    - javac -d bin VM.java
+    - cd bin
+    - java VM ../<inputfileName> ../<outputfilename>
+
+    this method generates all .class files to a new folder called bin.
+    This is better to avoid mixing source files with .class files
+
+* The dirty way
+    - cd to source folder
+    - javac VM.java
+    - java VM <inputFileName> <outputFileName>
+
+    all .class files with be saved in the same folder as source files
+
+
+NOTE: My conputer took about 3 minutes to finish running the third test file
