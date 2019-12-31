@@ -39,6 +39,8 @@
 # *.iml
 # *.ipr
 
+JavaVirturalMachine.iml
+
 # CMake
 cmake-build-*/
 
